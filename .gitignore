@@ -2,7 +2,4 @@
 .gradle/
 .idea/
 *.iml
-gradle/
-gradlew
-gradlew.bat
-settings.gradle
+build/
