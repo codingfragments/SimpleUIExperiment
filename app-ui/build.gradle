@@ -1,0 +1,41 @@
+
+plugins {
+  id "com.dorongold.task-tree" version "1.3"
+  id "com.moowork.node" version "1.2.0"
+}
+apply plugin: "base"
+
+
+
+node {
+    version = '8.4.0'
+    download = true
+}
+
+
+
+task buildNg(type:Exec) {
+
+  outputs.dir file ('./build/dist')
+  inputs.dir file('src/')
+
+
+  commandLine 'ng','build'
+
+  //store the output instead of printing to the console:
+  standardOutput = new ByteArrayOutputStream()
+
+  //extension method stopTomcat.output() can be used to obtain the output:
+  ext.output = {
+    return standardOutput.toString()
+  }
+}
+
+task serve(type:Exec) {
+  commandLine 'ng','serve'
+
+}
+
+
+build.dependsOn buildNg
+buildNg.dependsOn npmInstall

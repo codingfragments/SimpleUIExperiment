@@ -1,0 +1,53 @@
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "com.moowork.gradle:gradle-node-plugin:1.2.0"
+  }
+}
+
+apply plugin: "com.moowork.node"
+
+node {
+    version = '8.4.0'
+    download = true
+}
+
+
+
+task buildNg(type:Exec) {
+	
+  outputs.dir file ('./build/dist')
+  inputs.dir file('src/main/app/')
+  inputs.dir file('src/main/assets/')
+  inputs.dir file('src/main/environments/')
+  inputs.files ( file('src/main').listFiles().findAll {it.name.endsWith('.ts')})
+  inputs.files ( file('src/main').listFiles().findAll {it.name.endsWith('.html')})
+  inputs.file file('src/main/tsconfig.app.json')
+  inputs.file file('src/main/index.html')
+
+
+  commandLine 'ng','build'
+
+  //store the output instead of printing to the console:
+  standardOutput = new ByteArrayOutputStream()
+
+  //extension method stopTomcat.output() can be used to obtain the output:
+  ext.output = {
+    return standardOutput.toString()
+  }
+}
+
+task serve(type:Exec) {
+  commandLine 'ng','serve'
+
+}
+
+task build() {
+}
+
+build.dependsOn buildNg
+buildNg.dependsOn npmInstall
