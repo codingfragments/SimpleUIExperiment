@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy,PathLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -17,6 +17,9 @@ import { AppRoutingModule } from './app.routing';
 
 // Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
+import { HomeModule } from './modules/home/home.module';
+import { SimpleDecoratedComponent } from './layouts/simple-decorated/simple-decorated.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -24,7 +27,8 @@ import { FullLayoutComponent } from './layouts/full-layout.component';
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    HomeModule
   ],
   declarations: [
     AppComponent,
@@ -32,7 +36,9 @@ import { FullLayoutComponent } from './layouts/full-layout.component';
     NAV_DROPDOWN_DIRECTIVES,
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
-    AsideToggleDirective
+    AsideToggleDirective,
+    SimpleDecoratedComponent,
+    FooterComponent
   ],
   providers: [{
     provide: LocationStrategy,

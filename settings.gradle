@@ -21,4 +21,4 @@ include 'app-server'
 include 'distribution-web'
 include 'distribution-electron'
 
-rootProject.name = 'fullStackWeb'
+rootProject.name = 'AceSimpleUi'

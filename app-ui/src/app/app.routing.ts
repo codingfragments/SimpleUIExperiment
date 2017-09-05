@@ -3,16 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
+import {SimpleDecoratedComponent} from "./layouts/simple-decorated/simple-decorated.component";
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
     path: '',
-    component: FullLayoutComponent,
+    component: SimpleDecoratedComponent,
     data: {
       title: 'Home'
     },
@@ -20,6 +21,10 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: './dashboard/dashboard.module#DashboardModule'
+      },
+      {
+        path: 'home',
+        loadChildren: './modules/home/home.module#HomeModule'
       },
     ]
   }

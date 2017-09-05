@@ -20,7 +20,7 @@ task buildNg(type:Exec) {
   inputs.dir file('src/')
 
 
-  commandLine 'ng','build'
+  commandLine ngCommand,'build'
 
   //store the output instead of printing to the console:
   standardOutput = new ByteArrayOutputStream()
@@ -32,9 +32,17 @@ task buildNg(type:Exec) {
 }
 
 task serve(type:Exec) {
-  commandLine 'ng','serve'
+  commandLine ngCommand,'serve'
 
 }
+
+task ttt(type:Exec) {
+  commandLine ngCommand,'--version'
+
+}
+
+
+
 
 
 build.dependsOn buildNg
