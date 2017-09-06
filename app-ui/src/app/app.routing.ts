@@ -8,7 +8,7 @@ import {SimpleDecoratedComponent} from "./layouts/simple-decorated/simple-decora
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'dashboard/custom',
     pathMatch: 'full',
   },
   {

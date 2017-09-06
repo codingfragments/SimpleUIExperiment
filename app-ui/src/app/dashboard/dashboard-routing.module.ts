@@ -3,6 +3,7 @@ import { Routes,
      RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
+import {CustomDashboardComponent} from "./custom-dashboard/custom-dashboard.component";
 
 const routes: Routes = [
   {
@@ -11,7 +12,15 @@ const routes: Routes = [
     data: {
       title: 'Dashboard'
     }
-  }
+  },
+  {
+    path: 'custom',
+    component: CustomDashboardComponent,
+    data: {
+      title: 'CustomTest'
+    }
+  },
+
 ];
 
 @NgModule({

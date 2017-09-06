@@ -42,7 +42,7 @@ import { FooterComponent } from './shared/footer/footer.component';
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
+    useClass: PathLocationStrategy
   }],
   bootstrap: [ AppComponent ]
 })
