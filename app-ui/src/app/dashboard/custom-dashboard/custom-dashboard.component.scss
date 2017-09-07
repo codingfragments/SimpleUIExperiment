@@ -5,10 +5,13 @@
 
 .dashboardHeader {
   background-color: beige;
+  height: 30px;
 
 }
 .dashboardContent {
-  min-height: 200px;
-  min-width: 100px;
+  height: calc(100% - 30px);
+  width: 100%;
   background-color: white;
+  position:relative;
+  overflow: scroll;
 }
