@@ -16,9 +16,9 @@ const routes: Routes = [
   {
     path: 'custom',
     component: CustomDashboardComponent,
-    data: {
-      title: 'CustomTest'
-    }
+     data: {
+       t2: 'CustomTest'
+     }
   },
 
 ];

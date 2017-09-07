@@ -1,5 +1,7 @@
 <header class="app-header navbar">
-  <button class="navbar-toggler d-lg-none" type="button" appMobileSidebarToggler>&#9776;</button>
+  <button class="navbar-toggler d-md-down-none" type="button" appSidebarToggler *ngIf="showSidenav">&#9776;</button>
+  <button class="navbar-toggler d-lg-none" type="button" appMobileSidebarToggler *ngIf="showSidenav">&#9776;</button>
+
   <a class="navbar-brand" href="#"></a>
 
   <!--
@@ -9,28 +11,53 @@
     </li>
   </ul>
   -->
-  <ul class="nav navbar-nav d-md-down-none">
-    <li class="nav-item px-3">
-      <a class="nav-link" href="#">Dashboard</a>
-    </li>
-    <li class="nav-item px-3">
-      <a class="nav-link" href="#">Users</a>
-    </li>
-    <li class="nav-item px-3 ">
-      <a class="nav-link" href="#">Settings</a>
+  <ul class="nav navbar-nav d-md-down-none" *ngIf="showTopnav">
+    <li class="nav-item px-3" *ngFor="let navItem of topNavItems">
+      <a class="nav-link" routerLink="{{navItem.url}}" routerLinkActive="active">{{navItem.label}}</a>
     </li>
   </ul>
   <ul class="nav navbar-nav ml-auto">
-    <!--
     <li class="nav-item d-md-down-none">
       <a class="nav-link" href="#"><i class="icon-bell"></i><span class="badge badge-pill badge-danger">5</span></a>
     </li>
-    -->
   </ul>
 </header>
 
 <div class="app-body">
 
+  <div class="sidebar" *ngIf="showSidenav">
+    <nav class="sidebar-nav">
+      <ul class="nav">
+        <li class="nav-item" >
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span></a>
+        </li>
+        <li class="divider"></li>
+        <li class="nav-title">
+          UI Elements
+        </li>
+        <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
+          <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="icon-puzzle"></i> Components</a>
+          <ul class="nav-dropdown-items">
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/components/buttons']"><i class="icon-puzzle"></i> Buttons</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
+          <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="icon-star"></i> Icons</a>
+        </li>
+        <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
+          <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="icon-puzzle"></i> Components</a>
+          <ul class="nav-dropdown-items">
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/components/buttons']"><i class="icon-puzzle"></i> Buttons</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
 
   <!-- Main content -->
   <main class="main">

@@ -20,6 +20,7 @@ import { FullLayoutComponent } from './layouts/full-layout.component';
 import { HomeModule } from './modules/home/home.module';
 import { SimpleDecoratedComponent } from './layouts/simple-decorated/simple-decorated.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { SidebarElementComponent } from './shared/sidebar-element/sidebar-element.component';
 
 @NgModule({
   imports: [
@@ -38,11 +39,13 @@ import { FooterComponent } from './shared/footer/footer.component';
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
     SimpleDecoratedComponent,
-    FooterComponent
+    FooterComponent,
+    SidebarElementComponent
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: PathLocationStrategy
+    useClass: HashLocationStrategy
+    // useClass: PathLocationStrategy
   }],
   bootstrap: [ AppComponent ]
 })
