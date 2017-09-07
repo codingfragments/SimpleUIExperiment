@@ -3,7 +3,7 @@ import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
-import {NavConfig, NavEntry} from '../../shared/api/routing-config';
+import {NavBaseObject, NavConfig, NavEntry} from '../../shared/api/routing-config';
 
 @Component({
   selector: 'app-dashboard-simple',
@@ -15,9 +15,9 @@ export class SimpleDecoratedComponent implements OnInit, OnChanges {
 
 
   public showTopnav = false;
-  public topNavItems: NavEntry[] = [];
+  public topNavItems: NavBaseObject[] = [];
   public showSidenav: boolean;
-  public sideNavItems: NavEntry[] = [];
+  public sideNavItems: NavBaseObject[] = [];
 
   public disabled = false;
   public status: {isopen: boolean} = {isopen: false};

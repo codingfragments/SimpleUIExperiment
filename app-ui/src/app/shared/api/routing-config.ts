@@ -1,17 +1,22 @@
 
-export class NavBaseObject {
-  public constructor (readonly label: string) {}
+export abstract class NavBaseObject {
+  public constructor (readonly label: string, readonly url: string) {}
+  public abstract isType(type: string): boolean;
 
 }
 export class NavEntry extends NavBaseObject {
 
-  public constructor(label: string,
-                     readonly url: string,
+  public badges: NavBadge[] = [];
+
+  public constructor(label: string, url: string, readonly icon: string = '',
                      readonly entries: NavEntry[]= []) {
-      super(label);
+      super(label, url);
 
   }
 
+  public isType(type: string): boolean {
+    return type.toLowerCase() === 'entry';
+  }
 
   pushEntry(entry: NavEntry): NavEntry {
 
@@ -20,32 +25,62 @@ export class NavEntry extends NavBaseObject {
 
   }
 
+  public addBadge(type: string, label: string) {
+    this.badges.push(new NavBadge(type, label));
+    return this;
+  }
+
+  get hasEntries(): boolean {
+    return this.entries.length > 0;
+  }
 }
 
 export class NavSeparator extends NavBaseObject {
   public constructor() {
-    super ('');
+    super ('', '');
+  }
+
+  public isType(type: string): boolean {
+    return type.toLowerCase() === 'separator';
+  }
+
+}
+
+class NavBadge {
+  constructor(readonly type: string, readonly label: string) {
+
   }
 }
 
 export class NavTitle extends NavBaseObject {
-  public constructor(label: string) {
-    super(label);
+  public badges: NavBadge[] = [];
+  public constructor(label: string, url: string = '', readonly icon: string = '') {
+    super(label, url );
   }
+
+  public isType(type: string): boolean {
+    return type.toLowerCase() === 'title';
+  }
+
+  public addBadge(type: string, label: string) {
+    this.badges.push(new NavBadge(type, label));
+    return this;
+  }
+
 }
 
 
 
 export class NavConfig {
 
-    readonly entries: NavEntry[] = [];
+    readonly entries: NavBaseObject[] = [];
 
     public constructor(readonly showNav: boolean) {
 
     }
 
 
-  pushEntry(entry: NavEntry): NavConfig {
+  pushEntry(entry: NavBaseObject): NavConfig {
 
       this.entries.push(entry);
       return this;

@@ -21,6 +21,8 @@ import { HomeModule } from './modules/home/home.module';
 import { SimpleDecoratedComponent } from './layouts/simple-decorated/simple-decorated.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { SidebarElementComponent } from './shared/sidebar-element/sidebar-element.component';
+import { Error5xxComponent } from './shared/pages/error5xx.component';
+import { Error4xxComponent } from './shared/pages/error4xx.component';
 
 @NgModule({
   imports: [
@@ -40,7 +42,9 @@ import { SidebarElementComponent } from './shared/sidebar-element/sidebar-elemen
     AsideToggleDirective,
     SimpleDecoratedComponent,
     FooterComponent,
-    SidebarElementComponent
+    SidebarElementComponent,
+    Error5xxComponent,
+    Error4xxComponent,
   ],
   providers: [{
     provide: LocationStrategy,

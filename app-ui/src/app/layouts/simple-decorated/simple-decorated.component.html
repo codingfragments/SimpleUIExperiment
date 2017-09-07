@@ -28,7 +28,8 @@
   <div class="sidebar" *ngIf="showSidenav">
     <nav class="sidebar-nav">
       <ul class="nav">
-        <li class="nav-item" >
+        <app-sidebar-element *ngFor="let cfg of sideNavItems" [navElement]="cfg"></app-sidebar-element>
+        <!--<li class="nav-item" >
           <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span></a>
         </li>
         <li class="divider"></li>
@@ -54,6 +55,7 @@
             </li>
           </ul>
         </li>
+        -->
       </ul>
     </nav>
 

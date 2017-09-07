@@ -1,3 +1,27 @@
-<p>
-  sidebar-element works!
-</p>
+<li class="nav-title" *ngIf="navElement.isType('TITLE')">
+  {{navElement.label}}
+</li>
+
+<li class="divider" *ngIf="navElement.isType('SEPARATOR')"></li>
+
+<li class="nav-item" *ngIf="navElement.isType('ENTRY') && !navElement.hasEntries" >
+  <a class="nav-link" routerLinkActive="active" routerLink="{{navElement.url}}" >
+    <i class="{{navElement.icon}}" *ngIf="navElement.icon" ></i> {{navElement.label}}
+    <span *ngFor="let badge of navElement.badges" class="badge {{badge.type}}">{{badge.label}}</span>
+  </a>
+</li>
+
+
+<li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown *ngIf="navElement.isType('ENTRY') && navElement.hasEntries">
+  <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle>
+    <i class="{{navElement.icon}}" *ngIf="navElement.icon" ></i> {{navElement.label}}</a>
+  <ul class="nav-dropdown-items">
+    <li class="nav-item" *ngFor= "let ele of navElement.entries">
+      <a class="nav-link" routerLinkActive="active" routerLink="{{ele.url}}">
+        <i class="{{ele.icon}}" *ngIf="ele.icon" ></i> {{ele.label}}
+      </a>
+    </li>
+  </ul>
+</li>
+
+
