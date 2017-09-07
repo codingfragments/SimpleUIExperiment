@@ -42,7 +42,7 @@ export class SimpleDecoratedComponent implements OnInit, OnChanges {
 
 
 
-  ngOnInit (): void{
+  ngOnInit (): void {
     this.router.events.filter((event) => event instanceof NavigationEnd)
       .subscribe((event: NavigationEnd) => {
         this.processActivatedRoute(this.route);
@@ -58,17 +58,17 @@ export class SimpleDecoratedComponent implements OnInit, OnChanges {
         this.showTopnav = cfg.showNav;
         this.topNavItems = cfg.entries;
 
-      }else this.showTopnav = false;
+      } else {this.showTopnav = false; }
     });
 
-    while (route.firstChild) route = route.firstChild;
+    while (route.firstChild) {route = route.firstChild; }
     route.data.subscribe((data: any) => {
       if (data.sideNav && data.sideNav instanceof NavConfig) {
         const cfg: NavConfig = data.sideNav;
         this.showSidenav = cfg.showNav;
         this.sideNavItems = cfg.entries;
 
-      } else this.showSidenav = false;
+      } else { this.showSidenav = false; }
     });
 
   }

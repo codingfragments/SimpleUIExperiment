@@ -3,7 +3,7 @@ export class NavBaseObject {
   public constructor (readonly label: string) {}
 
 }
-export class NavEntry extends NavBaseObject{
+export class NavEntry extends NavBaseObject {
 
   public constructor(label: string,
                      readonly url: string,
@@ -29,7 +29,7 @@ export class NavSeparator extends NavBaseObject {
 }
 
 export class NavTitle extends NavBaseObject {
-  public constructor(label: string){
+  public constructor(label: string) {
     super(label);
   }
 }

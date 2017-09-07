@@ -8,10 +8,10 @@ import {NavBaseObject} from '../api/routing-config';
 })
 export class SidebarElementComponent implements OnInit {
 
-  constructor() { }
 
   @Input() navElement: NavBaseObject = null;
 
+  constructor() { }
 
   ngOnInit() {
   }
