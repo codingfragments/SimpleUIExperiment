@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
-import {SimpleDecoratedComponent} from "./layouts/simple-decorated/simple-decorated.component";
-import {NavConfig, NavEntry} from "./shared/api/routing-config";
+import {SimpleDecoratedComponent} from './layouts/simple-decorated/simple-decorated.component';
+import {NavConfig, NavEntry} from './shared/api/routing-config';
 
 export const routes: Routes = [
   {
@@ -21,8 +21,8 @@ export const routes: Routes = [
     data: {
       title: 'Home',
       topNav: new NavConfig(true)
-          .pushEntry(new NavEntry("Home","/home"))
-          .pushEntry(new NavEntry("Dashboard","/dashboard/custom"))
+          .pushEntry(new NavEntry('Home', '/home'))
+          .pushEntry(new NavEntry('Dashboard', '/dashboard/custom'))
 
 
     },
@@ -31,7 +31,7 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: './dashboard/dashboard.module#DashboardModule',
         data: { title: 'Dashboard',
-                tt:'lkl',
+                tt: 'lkl',
           t2: 'ss'}
       },
       {

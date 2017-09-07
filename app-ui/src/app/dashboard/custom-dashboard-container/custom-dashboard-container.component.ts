@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DashboardContainer} from "../api/dashboard-interfaces";
-import {DashboardConfig} from "../api/dashboard-config";
+import {DashboardContainer} from '../api/dashboard-interfaces';
+import {DashboardConfig} from '../api/dashboard-config';
 
 @Component({
   selector: 'dashboard-container',

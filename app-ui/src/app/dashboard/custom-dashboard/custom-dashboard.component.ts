@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DashboardConfig} from "../api/dashboard-config";
+import {DashboardConfig} from '../api/dashboard-config';
 
 @Component({
   selector: 'app-custom-dashboard',
@@ -10,8 +10,8 @@ export class CustomDashboardComponent implements OnInit {
 
   constructor() { }
 
-  public createDashboardConfig() :DashboardConfig {
-    let db = new DashboardConfig("myTestDb");
+  public createDashboardConfig(): DashboardConfig {
+    const db = new DashboardConfig('myTestDb');
 
     return db;
   }

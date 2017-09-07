@@ -3,7 +3,7 @@ import { Routes,
      RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
-import {CustomDashboardComponent} from "./custom-dashboard/custom-dashboard.component";
+import {CustomDashboardComponent} from './custom-dashboard/custom-dashboard.component';
 
 const routes: Routes = [
   {

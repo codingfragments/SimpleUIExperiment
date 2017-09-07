@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {NavBaseObject} from "../api/routing-config";
+import {NavBaseObject} from '../api/routing-config';
 
 @Component({
   selector: 'app-sidebar-element',
@@ -10,7 +10,7 @@ export class SidebarElementComponent implements OnInit {
 
   constructor() { }
 
-  @Input() navElement:NavBaseObject = null;
+  @Input() navElement: NavBaseObject = null;
 
 
   ngOnInit() {

@@ -42,7 +42,7 @@ export class SimpleDecoratedComponent implements OnInit, OnChanges {
 
 
 
-  ngOnInit ():void{
+  ngOnInit (): void{
     this.router.events.filter((event) => event instanceof NavigationEnd)
       .subscribe((event: NavigationEnd) => {
         this.processActivatedRoute(this.route);
@@ -52,9 +52,9 @@ export class SimpleDecoratedComponent implements OnInit, OnChanges {
   }
 
   private processActivatedRoute(route: ActivatedRoute) {
-    route.data.subscribe((data:any)=>{
+    route.data.subscribe((data: any) => {
       if (data.topNav && data.topNav instanceof NavConfig) {
-        let cfg:NavConfig = data.topNav;
+        const cfg: NavConfig = data.topNav;
         this.showTopnav = cfg.showNav;
         this.topNavItems = cfg.entries;
 
@@ -62,9 +62,9 @@ export class SimpleDecoratedComponent implements OnInit, OnChanges {
     });
 
     while (route.firstChild) route = route.firstChild;
-    route.data.subscribe((data:any)=>{
+    route.data.subscribe((data: any) => {
       if (data.sideNav && data.sideNav instanceof NavConfig) {
-        let cfg:NavConfig = data.sideNav;
+        const cfg: NavConfig = data.sideNav;
         this.showSidenav = cfg.showNav;
         this.sideNavItems = cfg.entries;
 
