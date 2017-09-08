@@ -25,7 +25,7 @@
 
 <div class="app-body">
 
-  <div class="sidebar" *ngIf="showSidenav">
+  <div class="sidebar sidebar-fixed" *ngIf="showSidenav">
     <nav class="sidebar-nav">
       <ul class="nav">
         <app-sidebar-element *ngFor="let cfg of sideNavItems" [navElement]="cfg"></app-sidebar-element>

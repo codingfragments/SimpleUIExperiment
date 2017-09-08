@@ -5,10 +5,12 @@
 <li class="divider" *ngIf="navElement.isType('SEPARATOR')"></li>
 
 <li class="nav-item" *ngIf="navElement.isType('ENTRY') && !navElement.hasEntries" >
+
   <a class="nav-link" routerLinkActive="active" routerLink="{{navElement.url}}" >
     <i class="{{navElement.icon}}" *ngIf="navElement.icon" ></i> {{navElement.label}}
     <span *ngFor="let badge of navElement.badges" class="badge {{badge.type}}">{{badge.label}}</span>
   </a>
+
 </li>
 
 
