@@ -24,6 +24,7 @@ import { SidebarElementComponent } from './shared/sidebar-element/sidebar-elemen
 import { Error5xxComponent } from './shared/pages/error5xx.component';
 import { Error4xxComponent } from './shared/pages/error4xx.component';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { LoggingService } from './shared/services/logging.service';
 
 @NgModule({
   imports: [
@@ -50,7 +51,8 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
+    useClass: HashLocationStrategy,
+    providers: [LoggingService]
     // useClass: PathLocationStrategy
   }],
   bootstrap: [ AppComponent ]
