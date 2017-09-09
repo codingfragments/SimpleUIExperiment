@@ -14,34 +14,34 @@ export interface Logger {
 }
 export class LoggerCategory implements Logger {
 
-  public constructor(readonly category: string) {}
+  public constructor(readonly category: string, readonly svc: LoggingService) {}
 
-  log(level: LogLevel, msg: any) {
-    console.log(`${level.level} : ${msg}`)
+  log(level: LogLevel, msg: any, data: any= []) {
+    this.svc.logInternal(this.category, level, msg, data);
   }
 
-  trace(msg: any) {
-    this.log(LogLevel.TRACE, msg);
+  trace(msg: any , data: any= []) {
+    this.log(LogLevel.TRACE, msg, data);
   }
 
-  debug(msg: any) {
-    this.log(LogLevel.DEBUG, msg);
+  debug(msg: any, data: any= []) {
+    this.log(LogLevel.DEBUG, msg, data);
   }
 
-  info(msg: any) {
-    this.log(LogLevel.INFO, msg);
+  info(msg: any, data: any= []) {
+    this.log(LogLevel.INFO, msg, data);
   }
 
-  warning(msg: any) {
-    this.log(LogLevel.WARNING, msg);
+  warning(msg: any, data: any= []) {
+    this.log(LogLevel.WARNING, msg, data);
   }
 
-  error(msg: any) {
-    this.log(LogLevel.ERROR, msg);
+  error(msg: any, data: any= []) {
+    this.log(LogLevel.ERROR, msg, data);
   }
 
-  fatal(msg: any) {
-    this.log(LogLevel.FATAL, msg);
+  fatal(msg: any, data: any= []) {
+    this.log(LogLevel.FATAL, msg, data);
   }
 
 }
@@ -61,13 +61,36 @@ export class LogLevel {
 
   }
 
-  public createLogger(category: string){
 
-  }
 }
 @Injectable()
 export class LoggingService {
 
+  private categoryMap: Map<string, LoggerCategory> = new Map();
+  jsonOutput = false;
   constructor() { }
+
+  public createLogger(category: string): LoggerCategory {
+    let cat = this.categoryMap.get(category);
+    if (!cat) {
+      cat = new LoggerCategory(category, this);
+      this.categoryMap.set(category, cat);
+    }
+
+    return cat;
+  }
+
+   logInternal( cat: string, level: LogLevel, msg: any, data: any= []) {
+    if (this.jsonOutput) {
+      console.log({
+        cat: cat,
+        level: level.level,
+        msg: msg,
+        data: data
+      })
+    } else {
+      console.log(`${level.level}  -${cat}- : ${msg}`)
+    }
+  }
 
 }
