@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {GridsterConfig} from 'angular-gridster2';
 import {GridsterConfigService} from 'angular-gridster2/dist/gridsterConfig.constant';
+import {LoremIpsumWidgetComponent} from '../../test-widgets/lorem-ipsum-widget/lorem-ipsum-widget.component';
 
 @Component({
   selector: 'page-dashboard-static-test',
   templateUrl: './dashboard-static-test.component.html',
-  styleUrls: ['./dashboard-static-test.component.scss']
+  styleUrls: ['./dashboard-static-test.component.scss'],
+  entryComponents: [
+    [LoremIpsumWidgetComponent]
+  ]
 })
 export class DashboardStaticTestComponent implements OnInit {
 
@@ -19,6 +23,7 @@ export class DashboardStaticTestComponent implements OnInit {
 
 
   public options: GridsterConfig = GridsterConfigService;
+  lorem = LoremIpsumWidgetComponent;
 
   public dashboard = [{ x: 1, y: 1, w: 1, h: 1},
     { x: 1, y: 2, w: 2, h: 1}]
@@ -29,11 +34,16 @@ export class DashboardStaticTestComponent implements OnInit {
     this.options.minCols = 5;
     this.options.minRows = 3;
     this.options.draggable.enabled = true;
+    this.options.swap = true;
     this.options.pushItems = true;
     this.options.pushResizeItems = true;
     this.options.margin = 5;
  //   this.options.gridType = 'scrollVertical';
 
+  }
+
+  public getComponent() {
+    return LoremIpsumWidgetComponent;
   }
 }
 
