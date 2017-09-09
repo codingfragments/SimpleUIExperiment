@@ -6,7 +6,7 @@ import { FullLayoutComponent } from './layouts/full-layout.component';
 import {SimpleDecoratedComponent} from './layouts/simple-decorated/simple-decorated.component';
 import {NavConfig, NavEntry} from './shared/api/routing-config';
 import {Error4xxComponent} from './shared/pages/error4xx.component';
-import {Error5xxComponent} from "./shared/pages/error5xx.component";
+import {Error5xxComponent} from './shared/pages/error5xx.component';
 
 export const navs = new NavConfig(true)
   .pushEntry(new NavEntry('Home', '/home'))
