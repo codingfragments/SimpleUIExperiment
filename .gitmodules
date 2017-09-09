@@ -1,0 +1,3 @@
+[submodule "app-ui/src/external/angular2gridster"]
+	path = app-ui/src/external/angular2gridster
+	url = git@github.com:codingfragments/angular2gridster.git

@@ -18,13 +18,21 @@
   <h4 style="">DashboardTest</h4>
   <div class="widgetArea" >
 
-    <gridster [options]="gridsterOptions">
-
-      <gridster-item *ngFor="let widget of widgets"
-                     [(x)]="widget.x" [(y)]="widget.y" [(w)]="widget.w" [(h)]="widget.h">
-        <widget-lorem-ipsum ></widget-lorem-ipsum>
+    <gridster [options]="options">
+      <gridster-item [item]="item" *ngFor="let item of dashboard">
+        <widget-lorem-ipsum></widget-lorem-ipsum>
       </gridster-item>
 
+      <gridster-item [item]="{}" >
+        <widget-lorem-ipsum></widget-lorem-ipsum>
+      </gridster-item>
+
+      <gridster-item [item]="{}" >
+        <h2>TESTERHDH FKDJF H</h2>
+      </gridster-item>
     </gridster>
   </div>
 </div>
+
+
+

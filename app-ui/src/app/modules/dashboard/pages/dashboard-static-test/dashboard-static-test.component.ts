@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {GridsterConfig} from 'angular-gridster2';
+import {GridsterConfigService} from 'angular-gridster2/dist/gridsterConfig.constant';
 
 @Component({
   selector: 'page-dashboard-static-test',
@@ -7,21 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardStaticTestComponent implements OnInit {
 
-  public gridsterOptions = {
-    lanes: 5, // how many lines (grid cells) dashboard has
-    direction: 'vertical', // items floating direction: vertical/horizontal
-    dragAndDrop: true, // possible to change items position by drag n drop
-    resizable: true, // possible to resize items by drag n drop by item edge/corner
-    widthHeightRatio: 2,
-    responsiveView: true
-  };
-
-  public widgets = [{ x: 1, y: 1, w: 1, h: 1},
-    { x: 1, y: 2, w: 1, h: 1}]
-
-  constructor() { }
-
-  ngOnInit() {
+  static itemChange(item, itemComponent) {
+    console.info('itemChanged', item, itemComponent);
   }
 
+  static itemResize(item, itemComponent) {
+    console.info('itemResized', item, itemComponent);
+  }
+
+
+  public options: GridsterConfig = GridsterConfigService;
+
+  public dashboard = [{ x: 1, y: 1, w: 1, h: 1},
+    { x: 1, y: 2, w: 2, h: 1}]
+
+
+  ngOnInit() {
+    this.options.resizable.enabled = true;
+    this.options.minCols = 5;
+    this.options.minRows = 3;
+    this.options.draggable.enabled = true;
+    this.options.pushItems = true;
+    this.options.pushResizeItems = true;
+    this.options.margin = 5;
+ //   this.options.gridType = 'scrollVertical';
+
+  }
 }
+
+
