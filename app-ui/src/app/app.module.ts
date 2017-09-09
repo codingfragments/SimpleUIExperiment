@@ -23,6 +23,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { SidebarElementComponent } from './shared/sidebar-element/sidebar-element.component';
 import { Error5xxComponent } from './shared/pages/error5xx.component';
 import { Error4xxComponent } from './shared/pages/error4xx.component';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { Error4xxComponent } from './shared/pages/error4xx.component';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    HomeModule
+    HomeModule,
+    DashboardModule
   ],
   declarations: [
     AppComponent,

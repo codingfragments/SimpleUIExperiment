@@ -26,6 +26,7 @@
     "@angular/router": "4.3.6",
     "@angular/upgrade": "4.3.6",
     "angular-2-holderjs": "^1.0.1",
+    "angular2gridster": "^0.6.6",
     "chart.js": "2.6.0",
     "core-js": "2.5.0",
     "holderjs": "^2.9.4",

@@ -10,7 +10,7 @@ import {Error5xxComponent} from "./shared/pages/error5xx.component";
 
 export const navs = new NavConfig(true)
   .pushEntry(new NavEntry('Home', '/home'))
-  .pushEntry(new NavEntry('Dashboard', '/dashboard/custom'));
+  .pushEntry(new NavEntry('Dashboard', '/dashboard'));
 
 export const routes: Routes = [
   {
@@ -31,10 +31,8 @@ export const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        loadChildren: './dashboard/dashboard.module#DashboardModule',
-        data: { title: 'Dashboard',
-                tt: 'lkl',
-          t2: 'ss'}
+        loadChildren: './modules/dashboard/dashboard.module#DashboardModule',
+        data: { title: 'Dashboard'}
       },
       {
         path: 'home',

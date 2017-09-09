@@ -1,0 +1,30 @@
+
+<div class="container-fluid">
+  <div class="row fixedHeight" >
+    <div class="col-md-4">
+      <widget-lorem-ipsum></widget-lorem-ipsum>
+    </div>
+    <div class="col-md-2">
+      <widget-lorem-ipsum></widget-lorem-ipsum>
+    </div>
+    <div class="col-md-2">
+      <widget-lorem-ipsum [txt]="'Lorem 123'"></widget-lorem-ipsum>
+    </div>
+  </div>
+</div>
+
+<div style="height: 20px"></div>
+<div style="margin-left: 10px">
+  <h4 style="">DashboardTest</h4>
+  <div class="widgetArea" >
+
+    <gridster [options]="gridsterOptions">
+
+      <gridster-item *ngFor="let widget of widgets"
+                     [(x)]="widget.x" [(y)]="widget.y" [(w)]="widget.w" [(h)]="widget.h">
+        <widget-lorem-ipsum ></widget-lorem-ipsum>
+      </gridster-item>
+
+    </gridster>
+  </div>
+</div>
