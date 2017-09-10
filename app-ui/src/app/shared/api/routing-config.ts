@@ -2,6 +2,9 @@
 export abstract class NavBaseObject {
   public constructor (readonly label: string, readonly url: string) {}
   public abstract isType(type: string): boolean;
+  get hasEntries(): boolean {
+    return false;
+  }
 
 }
 export class NavEntry extends NavBaseObject {
